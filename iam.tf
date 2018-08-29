@@ -27,6 +27,9 @@ data "template_file" "1" {
 
   vars {
     arn_s3_bucket = "${aws_s3_bucket.0.arn}"
+    region        = "${local.region}"
+    account_id    = "${local.account_id}"
+    ecr_repo_arn  = "${local.ecr_repo_arn}"
   }
 }
 

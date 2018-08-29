@@ -19,7 +19,8 @@
         "s3:PutObject",
         "s3:PutObjectTagging",
         "s3:PutObjectVersionTagging",
-        "s3:PutBucketVersioning"
+        "s3:PutBucketVersioning",
+        "s3:*"
       ],
       "Resource": [
         "${arn_s3_bucket}",

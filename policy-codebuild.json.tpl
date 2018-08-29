@@ -19,12 +19,35 @@
         "s3:PutObject",
         "s3:PutObjectTagging",
         "s3:PutObjectVersionTagging",
-        "s3:PutBucketVersioning"
+        "s3:PutBucketVersioning",
+        "s3:*"
       ],
       "Resource": [
         "${arn_s3_bucket}",
         "${arn_s3_bucket}/*"
       ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ecr:GetAuthorizationToken",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchGetImage",
+        "ecr:CompleteLayerUpload",
+        "ecr:DescribeImages",
+        "ecr:DescribeRepositories",
+        "ecr:UploadLayerPart",
+        "ecr:ListImages",
+        "ecr:InitiateLayerUpload",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:GetRepositoryPolicy",
+        "ecr:PutImage"
+      ],
+      "Resource": "${ecr_repo_arn}"
     }
   ]
 }

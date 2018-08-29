@@ -88,17 +88,15 @@ variable "pipeline_role_arn" {
   default     = ""
 }
 
-variable "fargate_cpu" {
-  description = "TODO"
-  default     = "1024"
+variable "ecs_cluster" {
+  description = "Name of ECS Cluster"
 }
 
-variable "fargate_memory" {
-  description = "TODO"
-  default     = "2048"
+variable "ecs_service" {
+  description = "Name of ECS Service"
 }
 
 variable "ecr_repo" {
-  description = "TODO"
+  description = "Name of the ecr repo in the same account and region as this pipeline"
   default     = ""
 }

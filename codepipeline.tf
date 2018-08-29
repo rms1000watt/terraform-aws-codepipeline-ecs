@@ -59,8 +59,8 @@ resource "aws_codepipeline" "0" {
       version         = "1"
 
       configuration {
-        ClusterName = "${var.ecs_cluster_name}"
-        ServiceName = "${var.service_name}"
+        ClusterName = "${var.ecs_cluster}"
+        ServiceName = "${var.ecs_service}"
       }
     }
   }
