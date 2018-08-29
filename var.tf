@@ -96,6 +96,10 @@ variable "ecs_service" {
   description = "Name of ECS Service"
 }
 
+variable "ecs_task_definition" {
+  description = "Name of ECS Task Definition"
+}
+
 variable "ecr_repo" {
   description = "Name of the ecr repo in the same account and region as this pipeline"
   default     = ""

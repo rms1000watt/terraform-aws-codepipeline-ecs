@@ -11,8 +11,9 @@ module "codepipeline_ecs" {
   github_repo        = "dummy-golang-project"
   github_oauth_token = "${var.github_oauth_token}"
 
-  ecs_cluster = "${module.ecs.ecs_name_cluster}"
-  ecs_service = "${module.ecs.ecs_name_service}"
+  ecs_cluster         = "${module.ecs.ecs_name_cluster}"
+  ecs_service         = "${module.ecs.ecs_name_service}"
+  ecs_task_definition = "${module.ecs.ecs_name_task_definition}"
 }
 
 module "vpc" {
@@ -21,7 +22,7 @@ module "vpc" {
 
   name               = "dev"
   cidr               = "10.0.0.0/16"
-  enable_nat_gateway = true
+  enable_nat_gateway = false
 
   azs            = ["us-west-2a", "us-west-2b", "us-west-2c"]
   public_subnets = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
@@ -40,7 +41,7 @@ module "sg" {
 
 module "ecs" {
   source  = "rms1000watt/ecs-fargate/aws"
-  version = "0.1.1"
+  version = "0.1.3"
 
   security_groups = ["${module.sg.id}"]
   subnets         = ["${module.vpc.public_subnets}"]
