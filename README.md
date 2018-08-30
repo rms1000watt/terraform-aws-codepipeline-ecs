@@ -29,4 +29,5 @@ See `examples` folder for actual usage
 
 ## TODO
 
+- [ ] Put SG on ECS that only allows inbound from ALB.. put easy-sg on ALB
 - [ ] Remove privileges (play game of least privileges)

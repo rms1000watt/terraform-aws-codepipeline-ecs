@@ -41,10 +41,13 @@ module "sg" {
 
 module "ecs" {
   source  = "rms1000watt/ecs-fargate/aws"
-  version = "0.1.17"
+  version = "0.1.25"
 
   security_groups = ["${module.sg.id}"]
   subnets         = ["${module.vpc.public_subnets}"]
   vpc_id          = "${module.vpc.vpc_id}"
   container_port  = "9999"
+
+  env_keys = ["MYSQL_USER", "MYSQL_PASS"]
+  env_vals = ["user", "pass"]
 }
