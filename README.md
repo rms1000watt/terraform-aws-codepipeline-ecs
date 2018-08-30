@@ -7,6 +7,7 @@ This module sets up AWS Codepipeline that CI/CD to an existing ECS cluster
 ## Contents
 
 - [Usage](#usage)
+- [TODO](#todo)
 
 ## Usage
 
@@ -25,3 +26,7 @@ module "codepipeline_ecs" {
 ```
 
 See `examples` folder for actual usage
+
+## TODO
+
+- [ ] Remove privileges (play game of least privileges)

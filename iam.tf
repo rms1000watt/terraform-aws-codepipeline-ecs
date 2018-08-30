@@ -13,6 +13,7 @@ data "template_file" "0" {
     account_id      = "${local.account_id}"
     cluster         = "${var.ecs_cluster}"
     task_definition = "${var.ecs_task_definition}"
+    ecr_repo_arn    = "${local.ecr_repo_arn}"
   }
 }
 
