@@ -11,6 +11,7 @@ resource "aws_codepipeline" "0" {
     name = "Source"
 
     action {
+      run_order        = 1
       name             = "Source"
       category         = "Source"
       owner            = "ThirdParty"
@@ -32,11 +33,12 @@ resource "aws_codepipeline" "0" {
     name = "Build"
 
     action {
-      name     = "Build"
-      category = "Build"
-      owner    = "AWS"
-      provider = "CodeBuild"
-      version  = "1"
+      run_order = 2
+      name      = "Build"
+      category  = "Build"
+      owner     = "AWS"
+      provider  = "CodeBuild"
+      version   = "1"
 
       input_artifacts  = ["code"]
       output_artifacts = ["task"]
@@ -51,6 +53,7 @@ resource "aws_codepipeline" "0" {
     name = "Deploy"
 
     action {
+      run_order       = 3
       name            = "Deploy"
       category        = "Deploy"
       owner           = "AWS"
@@ -61,6 +64,24 @@ resource "aws_codepipeline" "0" {
       configuration {
         ClusterName = "${var.ecs_cluster}"
         ServiceName = "${var.ecs_service}"
+      }
+    }
+  }
+
+  stage {
+    name = "Test"
+
+    action {
+      run_order       = 4
+      name            = "Test"
+      category        = "Test"
+      owner           = "AWS"
+      provider        = "CodeBuild"
+      input_artifacts = ["code"]
+      version         = "1"
+
+      configuration {
+        ProjectName = "${local.project_name_integration_test}"
       }
     }
   }

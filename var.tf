@@ -3,8 +3,18 @@ variable "build_spec" {
   default     = "buildspec.yml"
 }
 
+variable "test_spec" {
+  description = "Test spec file"
+  default     = "testspec.yml"
+}
+
 variable "project_name" {
   description = "Name for the project"
+  default     = ""
+}
+
+variable "project_name_integration_test" {
+  description = "Name for the project for integration tests (codebuild)"
   default     = ""
 }
 

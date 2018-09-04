@@ -8,8 +8,9 @@ locals {
 }
 
 locals {
-  project_name      = "${var.project_name != "" ? var.project_name : local.parent_dir}"
-  pipeline_role_arn = "${var.pipeline_role_arn != "" ? var.pipeline_role_arn : aws_iam_role.0.arn}"
+  project_name                  = "${var.project_name != "" ? var.project_name : local.parent_dir}"
+  project_name_integration_test = "${var.project_name_integration_test != "" ? var.project_name_integration_test : "${local.project_name}"}"
+  pipeline_role_arn             = "${var.pipeline_role_arn != "" ? var.pipeline_role_arn : aws_iam_role.0.arn}"
 
   codebuild_github_repo   = "git@github.com:${var.github_org}/${var.github_repo}.git?ref=${var.github_branch}"
   codebuild_iam_role_name = "${local.project_name}-codebuild"
