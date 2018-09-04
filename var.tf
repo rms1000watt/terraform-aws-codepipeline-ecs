@@ -114,3 +114,18 @@ variable "ecr_repo" {
   description = "Name of the ecr repo in the same account and region as this pipeline"
   default     = ""
 }
+
+variable "vpc_id" {
+  description = "ID of VPC to run within"
+  default     = ""
+}
+
+variable "subnets" {
+  description = "IDs of subnets to run within"
+  default     = []
+}
+
+variable "security_groups" {
+  description = "IDs of security groups to attach"
+  default     = []
+}

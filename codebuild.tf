@@ -1,6 +1,6 @@
 module "codebuild" {
   source  = "rms1000watt/codebuild/aws"
-  version = "0.1.12"
+  version = "0.1.13"
 
   project_name        = "${local.project_name}"
   project_description = "${var.project_description}"
@@ -18,11 +18,15 @@ module "codebuild" {
 
   env_keys = ["${var.env_keys}"]
   env_vals = ["${var.env_vals}"]
+
+  vpc_id          = "${var.vpc_id}"
+  subnets         = ["${var.subnets}"]
+  security_groups = ["${var.security_groups}"]
 }
 
 module "codebuild_integration_test" {
   source  = "rms1000watt/codebuild/aws"
-  version = "0.1.12"
+  version = "0.1.13"
 
   project_name        = "${local.project_name_integration_test}"
   project_description = "${var.project_description}"
@@ -39,4 +43,8 @@ module "codebuild_integration_test" {
 
   env_keys = ["${var.env_keys}"]
   env_vals = ["${var.env_vals}"]
+
+  vpc_id          = "${var.vpc_id}"
+  subnets         = ["${var.subnets}"]
+  security_groups = ["${var.security_groups}"]
 }
