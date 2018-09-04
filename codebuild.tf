@@ -15,6 +15,9 @@ module "codebuild" {
 
   github_repo        = "${local.codebuild_github_repo}"
   github_clone_depth = "${var.github_clone_depth}"
+
+  env_keys = ["${var.env_keys}"]
+  env_vals = ["${var.env_vals}"]
 }
 
 module "codebuild_integration_test" {
@@ -33,4 +36,7 @@ module "codebuild_integration_test" {
 
   github_repo        = "${local.codebuild_github_repo}"
   github_clone_depth = "${var.github_clone_depth}"
+
+  env_keys = ["${var.env_keys}"]
+  env_vals = ["${var.env_vals}"]
 }
