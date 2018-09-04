@@ -17,7 +17,7 @@ module "codebuild" {
   github_clone_depth = "${var.github_clone_depth}"
 }
 
-module "codebuild" {
+module "codebuild_integration_test" {
   source  = "rms1000watt/codebuild/aws"
   version = "0.1.12"
 

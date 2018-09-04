@@ -37,7 +37,10 @@
         "codebuild:BatchGetBuilds",
         "codebuild:StartBuild"
       ],
-      "Resource": "${arn_codebuild}"
+      "Resource": [
+        "${arn_codebuild}",
+        "${arn_codebuild_integration_test}"
+        ]
     },
     {
       "Effect": "Allow",
