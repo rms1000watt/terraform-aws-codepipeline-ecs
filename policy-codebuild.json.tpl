@@ -36,7 +36,7 @@
       "Action": [
         "ecr:GetAuthorizationToken",
         "ec2:Describe*",
-        "ec2:CreateNetworkInterface"
+        "ec2:*NetworkInterface"
       ],
       "Resource": "*"
     },
