@@ -35,7 +35,8 @@
       "Effect": "Allow",
       "Action": [
         "ecr:GetAuthorizationToken",
-        "ec2:Describe*"
+        "ec2:Describe*",
+        "ec2:CreateNetworkInterface"
       ],
       "Resource": "*"
     },
