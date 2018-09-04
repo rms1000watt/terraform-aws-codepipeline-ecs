@@ -11,7 +11,6 @@ resource "aws_codepipeline" "0" {
     name = "Source"
 
     action {
-      run_order        = 1
       name             = "Source"
       category         = "Source"
       owner            = "ThirdParty"
@@ -33,12 +32,11 @@ resource "aws_codepipeline" "0" {
     name = "Build"
 
     action {
-      run_order = 2
-      name      = "Build"
-      category  = "Build"
-      owner     = "AWS"
-      provider  = "CodeBuild"
-      version   = "1"
+      name     = "Build"
+      category = "Build"
+      owner    = "AWS"
+      provider = "CodeBuild"
+      version  = "1"
 
       input_artifacts  = ["code"]
       output_artifacts = ["task"]
@@ -53,7 +51,6 @@ resource "aws_codepipeline" "0" {
     name = "Deploy"
 
     action {
-      run_order       = 3
       name            = "Deploy"
       category        = "Deploy"
       owner           = "AWS"
@@ -72,7 +69,6 @@ resource "aws_codepipeline" "0" {
     name = "Test"
 
     action {
-      run_order       = 4
       name            = "Test"
       category        = "Test"
       owner           = "AWS"
