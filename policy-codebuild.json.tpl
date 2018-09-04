@@ -35,9 +35,7 @@
       "Effect": "Allow",
       "Action": [
         "ecr:GetAuthorizationToken",
-        "ec2:DescribeSecurityGroupReferences",
-        "ec2:DescribeSecurityGroups",
-        "ec2:DescribeStaleSecurityGroups"
+        "ec2:Describe*"
       ],
       "Resource": "*"
     },
