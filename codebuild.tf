@@ -1,6 +1,6 @@
 module "codebuild" {
   source  = "rms1000watt/codebuild/aws"
-  version = "0.1.14"
+  version = "0.1.16"
 
   project_name        = "${local.project_name}"
   project_description = "${var.project_description}"
@@ -26,7 +26,7 @@ module "codebuild" {
 
 module "codebuild_integration_test" {
   source  = "rms1000watt/codebuild/aws"
-  version = "0.1.14"
+  version = "0.1.16"
 
   project_name        = "${local.project_name_integration_test}"
   project_description = "${var.project_description}"
